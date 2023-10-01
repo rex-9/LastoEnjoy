@@ -45,7 +45,7 @@ class SwapiService {
 
   public async getHomeworld(url: string): Promise<any> {
     const data = axios.get(url).then((response) => response.data);
-    console.log("Data", data);
+    console.log("Home World Data", data);
     return data;
   }
 }
