@@ -2,25 +2,36 @@ import { useState } from "react";
 import SwapiService from "../services/swapiService";
 import HelperService from "../services/helperService";
 
+type Props = {
+  setCharacters: Function;
+  setPages: Function;
+  setIsLoading: Function;
+  setIsError: Function;
+  setErrorMessage: Function;
+};
+
+type State = {
+  searchTerm: string;
+  filters: {
+    homeworld: string;
+    film: string;
+    species: string;
+  };
+};
+
 const SearchFilter = ({
   setCharacters,
   setPages,
   setIsLoading,
   setIsError,
   setErrorMessage,
-}: {
-  setCharacters: any;
-  setPages: any;
-  setIsLoading: any;
-  setIsError: any;
-  setErrorMessage: any;
-}) => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [filters, setFilters] = useState({
-    homeworld: "",
-    film: "",
-    species: "",
-  });
+}: Props) => {
+  const [searchTerm, setSearchTerm] = useState<State["searchTerm"]>("");
+  // const [filters, setFilters] = useState({
+  //   homeworld: "",
+  //   film: "",
+  //   species: "",
+  // });
 
   const handleSearchChange = (event: any) => {
     setSearchTerm(event.target.value);

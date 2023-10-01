@@ -25,10 +25,23 @@ class SwapiService {
   }
 
   public async getHomeworld(url: string): Promise<any> {
-    const data = axios.get(url).then((response) => response.data);
+    const response = await axios.get(url);
+    const data = response.data;
     console.log("Home World Data", data);
     return data;
   }
+
+  // public async getFilms(url: string): Promise<any> {
+  //   const data = axios.get(url).then((response) => response.data);
+  //   console.log("Films Data", data);
+  //   return data;
+  // }
+
+  // public async getSpecies(url: string): Promise<any> {
+  //   const data = axios.get(url).then((response) => response.data);
+  //   console.log("Species Data", data);
+  //   return data;
+  // }
 }
 
 export default SwapiService.getInstance();
