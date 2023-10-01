@@ -50,7 +50,9 @@ const CharacterModal = ({
           </div>
         </div>
         <p>{character.species[0]}</p>
-        <button onClick={(e) => closeModal(e)}>Close</button>
+        <button className="btn" onClick={(e) => closeModal(e)}>
+          Close
+        </button>
       </div>
     </>
   );
