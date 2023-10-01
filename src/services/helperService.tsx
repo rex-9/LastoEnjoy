@@ -7,6 +7,25 @@ class HelperService {
 
     return HelperService.instance;
   }
+
+  generateCharacterPic = (characters: any) => {
+    characters = characters.map((character: any, index: number) => {
+      character.image = `https://picsum.photos/id/${index}/100/100`;
+      return character;
+    });
+
+    return characters;
+  };
+
+  calcPages = (count: any) => {
+    const totalPage = Math.ceil(count / 10);
+    const pages: number[] = [];
+    for (let i = 1; i <= totalPage; i++) {
+      pages.push(i);
+    }
+    return pages;
+  };
+
   numberToColor = (id: string) => {
     switch (id) {
       case "0":

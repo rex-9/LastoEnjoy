@@ -6,6 +6,8 @@ import SwapiService from "../services/swapiService";
 import Loading from "../components/Loading";
 import Error from "../components/Error";
 import Pagination from "../components/Pagination";
+import SearchFilter from "../components/SearchFilter";
+import HelperService from "../services/helperService";
 
 function Home() {
   const [characters, setCharacters] = useState([]);
@@ -16,30 +18,16 @@ function Home() {
   const [errorMessage, setErrorMessage] = useState("");
   const user = localStorage.getItem("user") ?? null;
 
-  const generateCharacterPic = (characters: any) => {
-    characters = characters.map((character: any, index: number) => {
-      character.image = `https://picsum.photos/id/${index}/100/100`;
-      return character;
-    });
-
-    setCharacters(characters);
-  };
-
-  const calcPages = (data: any) => {
-    const totalPage = Math.ceil(data.count / 10);
-    const pages: number[] = [];
-    for (let i = 1; i <= totalPage; i++) {
-      pages.push(i);
-    }
-    return pages;
-  };
-
-  const fetchCharacters = (page: number = 1) => {
-    SwapiService.getCharacters(page)
+  const fetchCharacters = (context: { page: string; searchTerm: string }) => {
+    SwapiService.getCharacters({
+      page: context.page,
+      searchTerm: context.searchTerm,
+    })
       .then((data: any) => {
-        generateCharacterPic(data.results);
-        setPages(calcPages(data));
+        setCharacters(HelperService.generateCharacterPic(data.results));
+        setPages(HelperService.calcPages(data.count));
         setIsLoading(false);
+        setIsError(false);
       })
       .catch((e: any) => {
         setIsError(true);
@@ -48,12 +36,12 @@ function Home() {
   };
 
   useEffect(() => {
-    fetchCharacters();
+    fetchCharacters({ page: "1", searchTerm: "" });
   }, []);
 
   const navToPage = (page: number) => {
     setIsLoading(true);
-    fetchCharacters(page);
+    fetchCharacters({ page: page.toString(), searchTerm: "" });
     setCurrentPage(page);
   };
 
@@ -64,7 +52,7 @@ function Home() {
 
   return (
     <>
-      <nav className="fixed top-0 p-4 w-full">
+      <nav className="fixed top-0 p-4 w-[10%] left-0">
         <ul className="flex justify-center items-center gap-4">
           <li>
             <Link
@@ -90,7 +78,14 @@ function Home() {
           </li>
         </ul>
       </nav>
-      <section>
+      <section className="flex flex-col justify-center items-center gap-4">
+        <SearchFilter
+          setCharacters={setCharacters}
+          setPages={setPages}
+          setIsLoading={setIsLoading}
+          setIsError={setIsError}
+          setErrorMessage={setErrorMessage}
+        />
         {isLoading && !isError ? (
           <Loading />
         ) : (
