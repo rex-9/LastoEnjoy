@@ -3,10 +3,12 @@ import CharacterList from "./components/CharacterList";
 import SwapiService from "./services/swapiService";
 import Loading from "./components/Loading";
 import Error from "./components/Error";
+import Pagination from "./components/Pagination";
 
 function App() {
   const [characters, setCharacters] = useState([]);
   const [pages, setPages] = useState<number[]>([]);
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -49,6 +51,7 @@ function App() {
   const navToPage = (page: number) => {
     setIsLoading(true);
     fetchCharacters(page);
+    setCurrentPage(page);
   };
 
   return (
@@ -59,18 +62,11 @@ function App() {
         ) : (
           <div>
             <CharacterList characters={characters} />
-            <div className="w-full flex justify-center items-center my-8">
-              <div className="w-1/4 flex justify-between items-center">
-                {pages.map((page: number) => (
-                  <button
-                    className="px-2 border-2 rounded-lg border-gray-400"
-                    onClick={() => navToPage(page)}
-                  >
-                    {page}
-                  </button>
-                ))}
-              </div>
-            </div>
+            <Pagination
+              pages={pages}
+              currentPage={currentPage}
+              navToPage={navToPage}
+            />
           </div>
         )}
         {isError && <Error message={errorMessage} />}
