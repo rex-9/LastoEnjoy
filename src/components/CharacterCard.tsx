@@ -1,5 +1,6 @@
 import { useState } from "react";
 import CharacterModal from "./CharacterModal";
+import HelperService from "../services/helperService";
 
 const CharacterCard = ({ character }: { character: any }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -11,14 +12,22 @@ const CharacterCard = ({ character }: { character: any }) => {
     console.log(isModalOpen);
   };
 
+  const id = character.species[0]?.split("/")[5] ?? "0";
+
   return (
     <>
       <article
         onClick={() => setIsModalOpen(true)}
-        className="w-1/4 bg-black rounded-lg"
+        className="w-1/4 h-36 rounded-lg pb-4"
+        style={{
+          backgroundColor: `#${HelperService.numberToColor(id)}${id}${id}`,
+        }}
       >
-        <div>CharacterCard</div>
-        <img src={character?.image} alt="" />
+        <img
+          className="w-full h-[80%] object-cover rounded-t-lg bg-blue-400 mb-3"
+          src={character.image}
+          alt=""
+        />
         <div>{character.name}</div>
         {isModalOpen && (
           <CharacterModal character={character} closeModal={closeModal} />
