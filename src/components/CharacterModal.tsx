@@ -49,15 +49,7 @@ const CharacterModal = ({
             <p>{homeworld.population}</p>
           </div>
         </div>
-        {/* <p>Height: {character.height}m</p>
-        <p>Mass: {character.mass}kg</p>
-        <p>Date added: {new Date(character.created).toLocaleDateString()}</p>
-        <p>Number of films: {character.films.length}</p>
-        <p>Birth year: {character.birth_year}</p>
-        <h3>Homeworld: {homeworld.name}</h3>
-        <p>Terrain: {homeworld.terrain}</p>
-        <p>Climate: {homeworld.climate}</p>
-        <p>Number of residents: {homeworld.population}</p> */}
+        <p>{character.species[0]}</p>
         <button onClick={(e) => closeModal(e)}>Close</button>
       </div>
     </>

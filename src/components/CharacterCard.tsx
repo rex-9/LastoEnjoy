@@ -20,7 +20,7 @@ const CharacterCard = ({ character }: { character: any }) => {
         onClick={() => setIsModalOpen(true)}
         className="w-1/4 h-36 rounded-lg pb-4"
         style={{
-          backgroundColor: `#${HelperService.numberToColor(id)}${id}${id}`,
+          backgroundColor: `#${HelperService.numberToColor(id)}`,
         }}
       >
         <img
