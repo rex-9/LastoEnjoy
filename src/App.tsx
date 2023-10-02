@@ -13,23 +13,12 @@ const App = () => {
   useEffect(() => {
     const user = localStorage.getItem("user") ?? null;
     setUser(user);
-    // const path = window.location.pathname;
-
-    // Check if user is authenticated and redirect accordingly
-    // if (path === "/login" && user) {
-    //   window.location.href = "/";
-    // } else if (path === "/" && !user) {
-    //   window.location.href = "/login";
-    // }
   }, []);
 
   return (
     <Router>
       <div className="bg-gradient-to-br from-black via-red-300 to-blue-900 text-white font-mooli flex flex-col justify-center items-center w-screen h-screen">
         <Routes>
-          {/* <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} /> */}
-
           <Route
             path="/"
             element={

@@ -26,7 +26,7 @@ const CharacterCard = ({ character }: { character: any }) => {
         }}
       >
         <img
-          className="w-full h-[80%] object-cover rounded-t-lg bg-blue-400 mb-3"
+          className="w-full h-[80%] object-cover rounded-t-lg mb-3"
           src={character.image}
           alt="image"
         />
