@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import CharacterList from "../components/CharacterList";
 import SwapiService from "../services/swapiService";
@@ -16,6 +16,7 @@ function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
 
   const fetchCharacters = (context: { page: string; searchTerm: string }) => {
     SwapiService.getCharacters({
@@ -46,7 +47,7 @@ function Home() {
 
   const logout = () => {
     localStorage.removeItem("user");
-    window.location.href = "/login";
+    navigate("/login");
   };
 
   return (

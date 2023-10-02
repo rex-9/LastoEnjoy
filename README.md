@@ -35,21 +35,23 @@
 
 **Lasto-Enjoy-Star-Wars** is an assignment given to me by [Lasto-Enjoy](https://www.lastoenjoy.org/) to display my frontend skills.
 
-## Presentation
+<!-- ## Presentation -->
 
 <!-- - Click [HERE](https://drive.google.com/file/d/1SLUdlyzRBvoKv63vYlCwLDKHPUH2_RZb/view?usp=sharing) to view the project presentation -->
 
-## Pull Request
-
-<!-- - Click [HERE](https://github.com/rex-9/LegacyFA/pull/1) to view the project Pull Request. -->
-
 ## Screenshots <a name="screenshots"></a>
 
-<!-- - Dark Theme
-  ![Dark Theme](./src/assets/images/dark.png)
+- Character List
+  ![Character List](./src/assets/character-list.png)
 
-- Light Theme
-  ![Light Theme](./src/assets/images/light.png) -->
+- Character Modal
+  ![Character Modal](./src/assets/character-card.png)
+
+- Search Result
+  ![Search Result](./src/assets/search-result.png)
+
+- Login Page
+  ![Login Page](./src/assets/login.png)
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -77,7 +79,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-<!-- - [Live Demo Link](https://Lasto-Enjoy-Star-Wars.vercel.app/) -->
+- [Live Demo Link](https://lasto-enjoy.vercel.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
