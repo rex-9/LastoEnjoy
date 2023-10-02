@@ -65,7 +65,7 @@ const SearchFilter = ({
         value={searchTerm}
         onChange={handleSearchChange}
         placeholder="Search characters..."
-        className="searchBar"
+        className="px-4 py-2 rounded-lg"
       />
       <button type="button" className="btn text-white" onClick={handleSearch}>
         Search
