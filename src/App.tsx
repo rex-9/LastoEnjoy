@@ -13,14 +13,14 @@ const App = () => {
   useEffect(() => {
     const user = localStorage.getItem("user") ?? null;
     setUser(user);
-    const path = window.location.pathname;
+    // const path = window.location.pathname;
 
     // Check if user is authenticated and redirect accordingly
-    if (path === "/login" && user) {
-      window.location.href = "/";
-    } else if (path === "/" && !user) {
-      window.location.href = "/login";
-    }
+    // if (path === "/login" && user) {
+    //   window.location.href = "/";
+    // } else if (path === "/" && !user) {
+    //   window.location.href = "/login";
+    // }
   }, []);
 
   return (
