@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .link {
+    @apply hover:underline hover:text-blue-500 focus:underline focus:text-blue-500;
+  }
+  
+  .active-link {
+    @apply underline text-blue-500;
+  }
+
+  .btn {
+    @apply bg-gray-600 rounded-lg px-4 py-2 hover:bg-black
+  }
+}
+
+.saber-ring {
+  box-shadow:
+  0 0 0.6rem #ffe6e6,
+  0.2rem 0.1rem 1rem #ff6565,
+  0 0.5rem 1.5rem #ff2424;
+}
