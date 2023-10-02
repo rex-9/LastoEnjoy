@@ -18,7 +18,9 @@ const CharacterCard = ({ character }: { character: any }) => {
     <>
       <article
         onClick={() => setIsModalOpen(true)}
-        className="w-1/4 h-36 rounded-lg pb-4"
+        className="w-1/5 h-48 cursor-pointer rounded-lg pb-4 transition duration-300 ease-in-out 
+        saber-ring
+        hover:-translate-y-1 hover:scale-110 hover:ring hover:ring-red-500 hover:animate-pulse"
         style={{
           backgroundColor: `#${HelperService.numberToColor(id)}`,
         }}
@@ -29,10 +31,10 @@ const CharacterCard = ({ character }: { character: any }) => {
           alt="image"
         />
         <div>{character.name}</div>
-        {isModalOpen && (
-          <CharacterModal character={character} closeModal={closeModal} />
-        )}
       </article>
+      {isModalOpen && (
+        <CharacterModal character={character} closeModal={closeModal} />
+      )}
     </>
   );
 };

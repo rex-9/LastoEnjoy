@@ -12,6 +12,13 @@
   }
 
   .btn {
-    @apply bg-black rounded-lg px-4 py-2 hover:bg-gray-600
+    @apply bg-gray-600 rounded-lg px-4 py-2 hover:bg-black
   }
+}
+
+.saber-ring {
+  box-shadow:
+  0 0 0.6rem #ffe6e6,
+  0.2rem 0.1rem 1rem #ff6565,
+  0 0.5rem 1.5rem #ff2424;
 }

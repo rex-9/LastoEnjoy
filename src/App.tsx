@@ -20,7 +20,7 @@ const App = () => {
 
   return (
     <Router>
-      <div className="bg-gray-800 text-white font-mooli flex flex-col justify-center items-center w-screen h-screen">
+      <div className="bg-gradient-to-br from-black via-red-300 to-blue-900 text-white font-mooli flex flex-col justify-center items-center w-screen h-screen">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />

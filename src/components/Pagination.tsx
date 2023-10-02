@@ -12,7 +12,7 @@ const Pagination = ({
       <div className="w-1/4 flex justify-between items-center">
         {pages.map((page: number) => (
           <button
-            className="px-2 border-2 rounded-lg border-gray-400"
+            className="px-2 border-2 rounded-lg border-gray-400 hover:border-red-500"
             style={{
               backgroundColor: currentPage === page ? "red" : "transparent",
             }}

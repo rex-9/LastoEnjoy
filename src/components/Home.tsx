@@ -52,7 +52,7 @@ function Home() {
 
   return (
     <>
-      <nav className="fixed top-0 p-4 w-[10%] left-0">
+      <nav className="fixed top-0 flex justify-between p-4 w-full left-0 bg-gray-800">
         <ul className="flex justify-center items-center gap-4">
           <li>
             <Link
@@ -63,22 +63,14 @@ function Home() {
             </Link>
           </li>
           <li>
-            {user ? (
-              <button onClick={logout}>Logout</button>
-            ) : (
-              <Link
-                className={
-                  window.location.pathname === "/login" ? `active-link` : ""
-                }
-                to="/login"
-              >
-                Login
-              </Link>
-            )}
+            <button
+              className="hover:text-blue-500 hover:underline"
+              onClick={logout}
+            >
+              Logout
+            </button>
           </li>
         </ul>
-      </nav>
-      <section className="flex flex-col justify-center items-center gap-4">
         <SearchFilter
           setCharacters={setCharacters}
           setPages={setPages}
@@ -86,6 +78,8 @@ function Home() {
           setIsError={setIsError}
           setErrorMessage={setErrorMessage}
         />
+      </nav>
+      <section className="flex flex-col justify-center items-center gap-4 h-screen">
         {isLoading && !isError ? (
           <Loading />
         ) : (

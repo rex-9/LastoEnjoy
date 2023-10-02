@@ -58,7 +58,7 @@ const SearchFilter = ({
   // };
 
   return (
-    <form className="text-black flex items-center gap-4 fixed right-0 top-0">
+    <form className="text-black flex items-center gap-4">
       <input
         type="text"
         name="search"
