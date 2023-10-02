@@ -16,7 +16,6 @@ function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const user = localStorage.getItem("user") ?? null;
 
   const fetchCharacters = (context: { page: string; searchTerm: string }) => {
     SwapiService.getCharacters({
